@@ -16,15 +16,15 @@ export class RegistrationFormComponent {
 
   register() {
     this.http.post('http://localhost:3000/auth/register', this.formData)
-      .subscribe(
-        (response: any) => {
+      .subscribe({
+        next: (response: any) => {
           console.log(response);
           // Aquí puedes agregar el manejo de la respuesta del servidor
         },
-        (error: any) => {
+        error: (error: any) => {
           console.error(error);
           // Aquí puedes agregar el manejo de errores
         }
-      );
+      });
   }
 }
